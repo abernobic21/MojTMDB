@@ -1,0 +1,56 @@
+<h2 *ngIf="korisnikAutoriziran">Korisnici</h2>
+
+<div *ngIf="korisnikAutoriziran" class="divUnosDnevnik">
+    <div class="divDnevnikInputi">
+        <label for="datumOd">Datum od:</label>
+        <input type="text" id="datumOd" [(ngModel)]="datumOd">
+    
+        <label for="datumDo">Datum do:</label>
+        <input type="text" id="datumDo" [(ngModel)]="datumDo">
+    
+        <label for="vrijemeOd">Vrijeme od:</label>
+        <input type="text" id="vrijemeOd" [(ngModel)]="vrijemeOd">
+    
+        <label for="vrijemeDo">Vrijeme do:</label>
+        <input type="text" id="vrijemeDo" [(ngModel)]="vrijemeDo">
+    </div>
+    <div class="divButtonuDnevnik">
+        <button (click)="promjeniSort('d')">Sortiraj silazno po datumu</button>
+        <button (click)="promjeniSort('m')">Sortiraj uzlazno po metodi</button>
+    </div>
+
+    <button (click)="dajZapise()">Dohvati zapise</button>
+</div>
+
+<table *ngIf="korisnikAutoriziran" class="tableDnevnik">
+  <thead>
+    <tr>
+      <th>Datum</th>
+      <th>Vrijeme</th>
+      <th>Korime</th>
+      <th>Vrsta zahtjeva</th>
+      <th>Traženi resurs</th>
+      <th>Tijelo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let z of zapisi">
+      <td>{{ z.datum | date: "dd.MM.yyyy"}}</td>
+      <td>{{ z.vrijeme }}</td>
+      <td>{{ z.korime }}</td>
+      <td>{{ z.metoda }}</td>
+      <td>{{ z.trazeni_resurs }}</td>
+      <td>{{ z.tijelo }}</td> 
+    </tr>
+  </tbody>
+</table>
+
+  <div class="divStranicenje" *ngIf="zapisi.length != 0">
+    <button [disabled]="stranica <= 1" (click)="dajZapise(0)">&lt;&lt;</button>
+    <button [disabled]="stranica <= 1" (click)="dajZapise(stranica - 1)">&lt;</button>
+    <button>{{ +stranica + 1}}/{{ +ukupnoStranica + 1 }}</button>
+    <button [disabled]="stranica == ukupnoStranica" (click)="dajZapise(+stranica + 1)">&gt;</button>
+    <button [disabled]="stranica == ukupnoStranica" (click)="dajZapise(ukupnoStranica)">&gt;&gt;</button>
+</div>
+
+<app-zabrana-pristupa *ngIf="!korisnikAutoriziran"></app-zabrana-pristupa>

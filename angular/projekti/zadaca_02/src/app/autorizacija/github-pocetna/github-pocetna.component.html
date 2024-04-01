@@ -1,0 +1,12 @@
+<div *ngIf="uspjeh && korisnikAutoriziran" class="divObavijest">
+    <h1>GitHub prijava uspješna!</h1>
+    <p>Hvala vam što ste se prijavili putem GitHuba. Sada možete uživati u našem sadržaju.</p>
+    <a routerLink="/">Povratak na početnu stranicu</a>
+  </div>
+
+<div *ngIf="!uspjeh && korisnikAutoriziran" class="divObavijest">
+    <h1>GitHub prijava neuspješna!</h1>
+    <a routerLink="/prijava">Povratak na prijavu</a>
+</div>
+
+<app-zabrana-pristupa *ngIf="!korisnikAutoriziran"></app-zabrana-pristupa>

@@ -1,0 +1,222 @@
+<ul>
+    <li>Antonio Bernobić</li>
+    <li>abernobic21&#64;foi.hr</li>
+    <li> <img src="../../assets/slikaxica.jpg" alt="Slika autora" id="xica"></li>
+</ul>
+
+<a href="../../assets/ERA_abernobic21.png" target="_blank">
+    <img src="../../assets/ERA_abernobic21.png" alt="Slika ERA modela" id="ERA">
+    </a>
+    
+    <h4>Tablica 2. Pregled resursa, metoda i parametara REST servisa</h4>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Resurs<br>Parametri</th>
+                <th>GET<br>čitanje</th>
+                <th>POST<br>kreiranje</th>
+                <th>PUT<br>ažuriranje</th>
+                <th>DELETE<br>brisanje</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>baza/korisnici</td>
+                <td>napravljeno</td>
+                <td>napravljeno, može se kreirat samo običan korisnik</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>baza/korisnici/{{'{'}}korime{{'}'}}</td>
+                <td>napravljeno</td>
+                <td>napravljeno</td>
+                <td>napravljeno</td>
+                <td>napravljeno</td>
+            </tr>
+            <tr>
+                <td>baza/korisnici/{{'{'}}korime{{'}'}}/prijava</td>
+                <td>napravljeno</td>
+                <td>napravljeno</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>baza/favoriti</td>
+                <td>napravljeno</td>
+                <td>napravljeno</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>baza/favoriti/{{'{'}}id{{'}'}}</td>
+                <td>napravljeno</td>
+                <td>napravljeno</td>
+                <td>napravljeno</td>
+                <td>napravljeno</td>
+            </tr>
+            <tr>
+                <td>baza/dnevnik</td>
+                <td>dijelomično napravljeno, ne radi filtriranje po datumu i vremenu</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+        </table>
+        
+        <h4>Tablica 3. Pregled funkcionalnosti Web aplikacija</h4>
+        
+        <table>
+        <thead>
+            <tr>
+                <th>Uloga</th>
+                <th>Stranica/e</th>
+                <th>Opis</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Gost</td>
+                <td>Početna</td>
+                <td>Nakon unosa barem 3 znaka počinje slanje zahtjeva na restTMDB koji poziva metodu is klase TMDB koja dohvaća sve stranice iz TMDB servisa i preprema straničenje. Rest TMDB zatim vraća stranicu podataka koja se prikazuje zajedno o informacijama o broju stranica i trenutne stanice.</td>
+            </tr>
+            <tr>
+                <td>Gost / Korisnik</td>
+                <td>SerijaDetalji</td>
+                <td>Prikazuje detalje odabrane serija i ako je korisnik prijavljen postoji gumb za dodavanje u favorite.</td>
+            </tr>
+            <tr>
+                <td>Gost</td>
+                <td>Dokumentacija</td>
+                <td>Prikazuje dokumentaciju.</td>
+            </tr>
+            <tr>
+                <td>Gost</td>
+                <td>Prijava / Odjava</td>
+                <td>Prijava sadrži formu za prijavu, odjava se prikazuje u navigaciji samo ako je korisnik prijavljen i klikom na nju briše sesiju i vraća na početnu stranicu.</td>
+            </tr>
+            <tr>
+                <td>Korisnik</td>
+                <td>Profil</td>
+                <td>Prikazje popunjenu formu s podacima iz baze, može mjenjati sve podatke osim korisničkog imena i e-maila. I klikom gumba ažurirati podatke.</td>
+            </tr>
+            <tr>
+                <td>Korisnik</td>
+                <td>Favoriti</td>
+                <td>Prikazuje popis serija u favoritima. Klikom na gumb otvara FavoritiDetalji.</td>
+            </tr>
+            <tr>
+                <td>Korisnik</td>
+                <td>FavoritiDetalji</td>
+                <td>Prikazuje informacije o seriji i svim sezonama serije.</td>
+            </tr>
+            <tr>
+                <td>Admin</td>
+                <td>Registracija</td>
+                <td>Prikazuje formu za dodavanje korisnika, mora unijeti korisničko ime, e-mail i lozinku. Slanje e-maila nije implementirano.</td>
+            </tr>
+            <tr>
+                <td>Admin</td>
+                <td>Korisnici</td>
+                <td>Prikazuje sve korisnike i može brisati korisnike koji nisu admin. Zajedno s korisnikom se brišu svi njegovi favoriti.</td>
+            </tr>
+            <tr>
+                <td>Admin</td>
+                <td>Dnevnik</td>
+                <td>Nije implementirano.</td>
+            </tr>
+        </tbody>
+        </table>
+
+        <h4>2. Zadaća</h4>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Opis</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Na stranicu dokumentacija ažurirati tablice iz prve zadaće oko informacija koji dijelovi su
+                        napravljeni za servis odnosno aplikaciju. Ako je nešto napravljeno dijelomično treba to jasno
+                        napisati koji dio je napravljen.</td>
+                    <td>napravljeno</td>
+                </tr>
+                <tr>
+                    <td>Na stranicu dokumentacija kreirati tablicu po koracima ovog
+                        dokumenta u kojoj jasno pišu elementi opisa 2 zadaće koji su napravljeni, koji nisu</td>
+                    <td>napravljeno</td>
+                </tr>
+                <tr>
+                    <td>Složite package.json tako da se sa npm start može pokrenuti server</td>
+                    <td>napravljeno</td>
+                </tr>
+                <tr>
+                    <td>Kod predavanja zadaće izbrisati svoje ključeve za TMDB servis</td>
+                    <td>napravljeno</td>
+                </tr>
+                <tr>
+                    <td>Klientski dio Web Aplikacije prebaciti u Angular sa TypeScript-om</td>
+                    <td>napravljeno</td>
+                </tr>
+                <tr>
+                    <td>Pozadinski dio web aplikacije poslužuje kompajliranu verziju Angular aplikacije</td>
+                    <td>napravljeno</td>
+                </tr>
+                <tr>
+                    <td>Dokumentacija ugrađena u angular</td>
+                    <td>napravljeno</td>
+                </tr>
+                <tr>
+                    <td>Pozadinski dio web aplikacije nudi podršku u obliku REST servisa</td>
+                    <td>napravljeno</td>
+                </tr>
+                <tr>
+                    <td>Svi pozadinski dijelovi osim inicialnog posluživanja traže validan JWT</td>
+                    <td>napravljeno</td>
+                </tr>
+                <tr>
+                    <td>Informacije o bazičnoj adresi i portu čitaju se iz environment datoteke</td>
+                    <td>napravljeno</td>
+                </tr>
+                <tr>
+                    <td>Doraditi dizajn stranice korištenjem sass preprocesora u scss sintaksi</td>
+                    <td>napravljeno</td>
+                </tr>
+                <tr>
+                    <td>Dodati reCaptcha v3 sustav na minimalno 3 obrazaca (prijava, registracija i profil)</td>
+                    <td>napravljeno</td>
+                </tr>
+                <tr>
+                    <td>Doraditi ažuriranje profila sa opcijom da se uključi dvorazinska autentifikacija + QR kod</td>
+                    <td>napravljeno</td>
+                </tr>
+                <tr>
+                    <td>Prijava radi u dvije razine (1. korisničko ime, lozinka, 2. TOTP)</td>
+                    <td>napravljeno</td>
+                </tr>
+                <tr>
+                    <td>Prijava s oAuth putem GitHub računa</td>
+                    <td>napravljeno</td>
+                </tr>
+                <tr>
+                    <td>Korisnik preko GitHub računa koristi local storage za favorita</td>
+                    <td>napravljeno</td>
+                </tr>
+                <tr>
+                    <td>Postoji korisnik iz svake uloge bez TOTP za lakše testiranje</td>
+                    <td>napravljeno</td>
+                </tr>
+                <tr>
+                    <td>Prebaciti cijeli pozadinski dio u TypeScript</td>
+                    <td>nije napravljeno</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p>Na stranici dnevnika ne radi filtriranje po datumu i vremenu</p>
+        </div>

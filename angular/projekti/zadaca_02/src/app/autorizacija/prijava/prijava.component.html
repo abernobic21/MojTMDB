@@ -1,0 +1,25 @@
+<div class="divForma">
+  <h2>Prijava</h2>
+
+  <form [formGroup]="prijavaForm" (ngSubmit)="onSubmit()">
+      <label *ngIf="totpPrijava == false" for="korime">Korisničko ime:</label>
+      <input *ngIf="totpPrijava == false" type="text" id="korime" name="korime" formControlName="korime">
+
+      <label *ngIf="totpPrijava == false" for="lozinka">Lozinka:</label>
+      <input *ngIf="totpPrijava == false" type="password" id="lozinka" name="lozinka" formControlName="lozinka">
+
+      <label *ngIf="totpPrijava == true" for="totpKod">Unesite TOTP kod:</label>
+      <input *ngIf="totpPrijava == true" type="text" id="totpKod" name="totpKod" formControlName="totpKod">
+    
+      <input type="submit" value="Prijavi se" name="salji">
+    </form>
+  <div class="divGithubPrijava">
+    <p (click)="GithubPrijava()">Github prijava</p>
+  </div>
+</div>
+
+<div>
+  <p>Admin bez totp: Korisničko ime: admin, lozinka: rwa</p>
+  <p>Običan korisnik bez totp: Korisničko ime: test, lozinka: test</p>
+</div>
+    

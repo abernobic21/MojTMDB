@@ -1,0 +1,25 @@
+<nav>
+  <div class="nav-sadrzaj">
+    <div class="nav-logo">
+      <h1>{{title}}</h1>
+    </div>
+    <div class="nav-izbornik">  
+      <a routerLink="/pocetna">Početna</a>
+      <a *ngIf="statusPrijave != ''" routerLink="/favoriti">Favoriti</a>
+      <a *ngIf="statusPrijave != 'github' && statusPrijave != ''" routerLink="/profil">Profil</a>
+      <a *ngIf="statusPrijave == 'admin'"  routerLink="/registracija">Registracija</a>
+      <a *ngIf="statusPrijave == 'admin'"  routerLink="/korisnici">Korsinici</a>
+      <a *ngIf="statusPrijave == 'admin'"  routerLink="/dnevnik">Dnevnik</a>
+      <a routerLink="/dokumentacija">Dokumentacija</a>
+    </div>
+    <div class="nav-prijava-odjava">
+      <a *ngIf="statusPrijave == ''"  routerLink="/prijava">Prijava</a>
+      <a *ngIf="statusPrijave != ''"  (click)="odjaviSe()">Odjava</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <router-outlet ></router-outlet>
+</main>
+
+<footer>Antonio Bernobić &copy; 2023</footer>

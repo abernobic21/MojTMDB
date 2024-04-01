@@ -1,0 +1,511 @@
+$primarnaBoja: #032541;
+$sekundarnaBoja: #01B4E4;
+
+*{
+    font: {
+        family: "Source Sans Pro",Arial,sans-serif;
+    }
+}
+
+body {
+    margin: 0;
+}
+
+#filter {
+    width: 100%;
+    padding: 10px 0px 10px 10px;
+    border-radius: 20px;
+
+    &:focus {
+        outline: none;
+        border-color: $sekundarnaBoja;
+      }
+}
+
+  .listaSerija {
+    list-style-type: none;
+    padding: 0;
+  
+    li {
+      margin-bottom: 20px;
+      height: 150px;
+  
+      .sadrzajSerija{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #666;
+        border-radius: 20px;
+        height: 100%;
+
+        img {
+            height: 150px;
+            width: 100px;
+            border-radius: 20px 0 0 20px;
+        }
+
+        .naslovIOpisSerija {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 100%;
+            width: 100%;
+
+            margin-left: 15px;
+
+            p{
+              overflow-y: scroll;
+              overflow-x: hidden;
+              scrollbar-width: thin;
+              scrollbar-color: transparent transparent;
+              &::-webkit-scrollbar {
+                width: 0px; 
+              }
+                  
+              &::-webkit-scrollbar-thumb {
+                background-color: transparent;
+              }
+            }
+        }
+      }
+  
+      .btnDetaljiSerije {
+        background-color: $sekundarnaBoja;
+        color: white;
+        padding: 5px;
+        margin: 10px;
+        border: none;
+
+        border-radius: 10px;
+        font-weight: 600;
+      }
+    }
+  }
+  
+  .divStranicenje {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    button {
+      background-color: $sekundarnaBoja;
+      color: white;
+      padding: 8px;
+      border: none;
+      margin: 0 5px;
+
+      font-weight: 600;
+  
+      &:disabled {
+        background-color: #ddd;
+        color: #666;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .divDetaljiSerije{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+
+    background-color: rgba(10, 31, 73,0.95);
+    color: white;
+
+      img {
+        height: 525px;
+        width: 350px;
+        border-radius: 10px;
+      }
+  
+    .divDetaljiSerijeSadrzaj{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin: 30px;
+      
+    
+      .divDetaljiSerijeNaslov{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        h1{
+          margin: 0;
+        }
+        p{
+          margin:0;
+          color:#a4a4a4;
+        }
+      }
+
+      .divDetaljiSerijeOcjenaIPopularnost{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        p{
+          margin-right: 20px;
+        }
+      }
+
+      .divDetaljiSerijeOpis{
+        margin:20px 0 20px 0;
+      }
+
+      .divDetaljiSerijeOstalo{
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+      }
+    }
+  }
+  
+  .listaSezona {
+    list-style-type: none;
+    padding: 0;
+  
+    li {
+      margin-bottom: 20px;
+      height: 225px;
+  
+      .sadrzajSezona{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border: 1px solid #666;
+        border-radius: 20px;
+        height: 100%;
+
+          img {
+              height: 225px;
+              width: 150px;
+              border-radius: 20px 0 0 20px;
+          }
+          .divDetaljiSezonaSadrzaj{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 100%;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: transparent transparent;
+            &::-webkit-scrollbar {
+              width: 0px; 
+            }
+          
+            &::-webkit-scrollbar-thumb {
+              background-color: transparent;
+            }
+
+            .divDetaljiSezoneNaslovIOcjena {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                height: 100%;
+
+                margin-left: 15px;
+
+                h1{
+                  margin: 10px 0;
+                }
+                p{
+                  margin: 0;
+                  overflow: hidden;
+                }
+                .divDetaljiSezoneOcjena{
+                  display: flex;
+                  align-items: flex-start;
+                  height: 100%;
+
+                  .sezonaDatumEmitiranja{
+                    color: #666;
+                  }
+                  p{
+                    margin: 0 5px 0;
+                  }
+                }
+            }
+            .divDetaljiSezoneOpis{
+              display: flex;
+              justify-content: flex-start;
+              align-items: flex-start;
+              height: 100%;
+              width: 100%;
+              margin: 0 5px 0 5px;
+              p{
+                overflow: hidden;
+                margin: 10px
+              }
+            }
+          }
+      }
+    }
+  }
+
+  .btnSekundarnaBoja{
+    background-color: $sekundarnaBoja;
+        color: white;
+        padding: 5px;
+        border: none;
+
+        border-radius: 10px;
+        font-weight: 600;
+  }
+
+// forme
+.divForma {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    input {
+      margin-bottom: 10px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="submit"] {
+      background-color: $sekundarnaBoja;
+      color: #fff;
+      cursor: pointer;
+      font-weight: 600;
+    }
+  }
+  .divGithubPrijava{
+    margin-top: 20px;
+    text-align: center;
+    p{
+      color: $primarnaBoja;
+      padding: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 10px;
+      
+      &:hover{
+        color: $sekundarnaBoja;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+//profil
+
+.divTotp{
+  margin: 10px 0 10px 0;
+
+  #totpAktivan {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+
+    &:checked {
+      color: $sekundarnaBoja;
+      background-color: #fff;
+    }
+
+    &:before {
+      content: '\2713';
+      display: inline-block;
+      font-size: 14px;
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+      text-align: center;
+      vertical-align: middle;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin-right: 5px;
+    }
+  }
+}
+
+.divQrKod{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 50px;
+
+  p {
+    margin: 10px 0;
+  }
+
+  qrcode {
+    margin-top: 20px;
+  }
+}
+
+.divQrKod {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    margin: 10px 0;
+  }
+
+  qrcode {
+    margin-top: 20px;
+  }
+}
+
+.qrKodLozinka {
+  font-size: 16px;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  line-height: 1.3;
+}
+
+.qrKodTekst {
+  font-size: 14px;
+  margin-top: 20px;
+  color: #666;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+
+    button{
+      align-self: center;
+    }
+  }
+
+  th {
+    background-color: $primarnaBoja;
+    color: #fff;
+    text-align: center;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+}
+
+//githubPocetna
+
+.divObavijest{
+  text-align: center;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    color: black;
+    margin-bottom: 20px;
+  }
+
+  p {
+    color: #333;
+    margin-bottom: 30px;
+  }
+
+  a {
+    color: $primarnaBoja;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $sekundarnaBoja;
+    }
+  }
+}
+
+//dnevnik
+
+.tableDnevnik {
+  max-height: 800px;
+  overflow-y: auto;
+    th, td {
+      max-width: 200px;
+      overflow: hidden;
+    }
+}
+
+.divUnosDnevnik {
+
+  .divDnevnikInputi{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    
+    label {
+      margin-right: 10px;
+      color: #555;
+    }
+
+    input {
+      margin-right: 10px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  }
+
+  button {
+    background-color: $sekundarnaBoja;
+    color: white;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-top: 10px;
+
+    &:hover {
+      background-color: darken($sekundarnaBoja, 10%);
+    }
+  }
+
+}

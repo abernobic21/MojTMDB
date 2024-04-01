@@ -1,0 +1,61 @@
+<div class="divDetaljiSerije">
+    <div class="divDetaljiSerijePoster">
+        <img *ngIf="serija?.poster_path" [src]="posteriPutanja + serija?.poster_path" alt="Poster">
+    </div>
+    <div class="divDetaljiSerijeSadrzaj">
+        <div class="divDetaljiSerijeNaslov">
+            <h1>{{serija?.name}}</h1>
+            <p>({{serija?.first_air_date | date: "dd.MM.yyyy"}} - {{serija?.last_air_date | date: "dd.MM.yyyy"}})</p>
+            <p *ngIf="serija?.name != serija?.original_name">{{serija?.original_name}}</p>
+        </div>
+        <div class="divDetaljiSerijeOcjenaIPopularnost">
+            <p>Popularnost: {{serija?.popularity}}</p>
+            <p>Ocjena: {{serija?.vote_average | number:"1.1-1"}}/10</p>
+            <p>Broj glasova: {{serija?.vote_count}}</p>
+        </div>
+        <div class="divDetaljiSerijeOpis">
+            <h3>Opis:</h3>
+            <p>{{serija?.overview}}</p>
+        </div>
+        <div class="divDetaljiSerijeOstalo">
+            <a [href]="serija?.homepage">Homepage</a>
+            <p>Originalni jezik: {{serija?.original_language}}</p>
+            <p>Broj sezona: {{serija?.number_of_seasons}}</p>
+            <p>Broj epizoda: {{serija?.number_of_episodes}}</p>
+            <button class="btnSekundarnaBoja" *ngIf="statusPrijave != '' || statusPrijave != null  && serija" (click)="dodajFavorita(serija)">Dodaj u favorite</button>
+        </div>
+    </div>
+
+
+    
+</div>
+
+<br>
+
+<ul class="listaSezona">
+    <li *ngFor="let sezona of serija?.seasons">
+        <div class="sadrzajSezona">
+            <ng-container *ngIf="sezona.poster_path; else noImage">
+                <img *ngIf="sezona?.poster_path" [src]="posteriPutanja + sezona?.poster_path" alt="Poster">
+            </ng-container>
+            <ng-template #noImage>
+                <img src="assets/nemaSlike.png" alt="No Image">
+            </ng-template> 
+
+            <div class="divDetaljiSezonaSadrzaj">
+                <div class="divDetaljiSezoneNaslovIOcjena">
+                    <h1>S{{sezona.season_number}}. {{sezona?.name}}</h1>
+                    
+                    <div class="divDetaljiSezoneOcjena">
+                        <p *ngIf="sezona?.air_date" class="sezonaDatumEmitiranja">({{sezona?.air_date | date: "dd.MM.yyyy"}})</p>
+                        <p *ngIf="sezona?.vote_average">{{sezona?.vote_average | number:"1.1-1"}}/10</p>
+                        <p *ngIf="sezona.episode_count">{{sezona.episode_count}} epizoda</p>
+                    </div>
+                </div>
+                <div class="divDetaljiSezoneOpis">
+                    <p>{{sezona?.overview}}</p>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>

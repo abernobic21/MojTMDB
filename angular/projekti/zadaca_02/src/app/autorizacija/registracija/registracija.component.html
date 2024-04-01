@@ -1,0 +1,41 @@
+<div class="divForma" *ngIf="korisnikAutoriziran">
+  <h2>Registracija</h2>
+
+  <form [formGroup]="registracijaForm" (ngSubmit)="onSubmit()">
+      <label for="korime">Korisničko ime:</label>
+      <input type="text" id="korime" name="korime" formControlName="korime">
+      <br>
+    
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" formControlName="email">
+      <br>
+
+      <label for="lozinka">Lozinka:</label>
+      <input type="password" id="lozinka" name="lozinka" formControlName="lozinka">
+      <br>
+
+      <label for="ime">Ime:</label>
+      <input type="text" id="ime" name="ime" formControlName="ime">
+      <br>
+
+      <label for="prezime">Prezime:</label>
+      <input type="text" id="prezime" name="prezime" formControlName="prezime">
+      <br>
+
+      <label for="adresa">Adresa:</label>
+      <input type="text" id="adresa" name="adresa" formControlName="adresa">
+      <br>
+
+      <label for="datumRodenja">Datum rođenja:</label>
+      <input type="text" id="datumRodenja" name="datumRodenja" formControlName="datumRodenja">
+      <br>
+    
+      <label for="telefon">Telefon:</label>
+      <input type="text" id="telefon" name="telefon" formControlName="telefon">
+      <br>
+    
+      <input type="submit" value="Registriraj korisnika" name="salji">
+  </form>
+</div>
+
+<app-zabrana-pristupa *ngIf="!korisnikAutoriziran"></app-zabrana-pristupa>

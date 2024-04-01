@@ -1,0 +1,30 @@
+<h2 *ngIf="korisnikAutoriziran">Korisnici</h2>
+
+<table *ngIf="korisnikAutoriziran">
+  <thead>
+    <tr>
+      <th>Korisničko ime</th>
+      <th>Email</th>
+      <th>Ime</th>
+      <th>Prezime</th>
+      <th>Adresa</th>
+      <th>Datum rođenja</th>
+      <th>Telefon</th>
+      <th>Obriši korisnika</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let k of korisnici">
+      <td>{{ k.korime }}</td>
+      <td>{{ k.email }}</td>
+      <td>{{ k.ime }}</td>
+      <td>{{ k.prezime }}</td>
+      <td>{{ k.adresa }}</td>
+      <td>{{ k.datumRodenja }}</td>
+      <td>{{ k.telefon }}</td>
+      <td><button class="btnSekundarnaBoja" (click)="obrisiKorisnika(k.korime)">Obriši korisnika</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<app-zabrana-pristupa *ngIf="!korisnikAutoriziran"></app-zabrana-pristupa>

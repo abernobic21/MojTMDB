@@ -1,0 +1,31 @@
+<input type="text" id="filter" [(ngModel)]="filter" (keyup)="filtriraj()">
+
+<ul class="listaSerija">
+    <li *ngFor="let s of podaciSerija?.results">
+        <div class="sadrzajSerija">
+            <ng-container *ngIf="s.poster_path; else noImage">
+                <img [src]="posteriPutanja + s.poster_path" alt="Poster">
+            </ng-container>
+            <ng-template #noImage>
+                <img src="assets/nemaSlike.png" alt="No Image">
+            </ng-template>            
+            <div class="naslovIOpisSerija">
+                <h3>{{ s.name }}</h3>
+                <p>{{s.overview}}</p>
+            </div>
+            <button class="btnDetaljiSerije" (click)="otvoriSerijaDetalji(s.id)">Detalji serije</button>
+        </div>
+    </li>
+</ul>
+
+<div class="divStranicenje" *ngIf="podaciSerija">
+    <button [disabled]="podaciSerija.current_page <= 1" (click)="dajSerije(1)">&lt;&lt;</button>
+    <button [disabled]="podaciSerija.current_page <= 1" (click)="dajSerije(podaciSerija.current_page - 1)">&lt;</button>
+    <button>{{ podaciSerija.current_page }}/{{ podaciSerija.total_pages }}</button>
+    <button [disabled]="podaciSerija.current_page == podaciSerija.total_pages" (click)="dajSerije(+podaciSerija.current_page + 1)">&gt;</button>
+    <button [disabled]="podaciSerija.current_page == podaciSerija.total_pages" (click)="dajSerije(podaciSerija.total_pages)">&gt;&gt;</button>
+</div>
+
+<div *ngIf="!korisnikAutoriziran" class="divObavijest">
+    <h3>Potrebna prijava</h3>
+</div>

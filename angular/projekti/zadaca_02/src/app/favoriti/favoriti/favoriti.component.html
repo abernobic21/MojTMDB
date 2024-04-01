@@ -1,0 +1,21 @@
+<h2 *ngIf="korisnikAutoriziran">Favoriti</h2>
+
+<ul *ngIf="korisnikAutoriziran" class="listaSerija">
+    <li *ngFor="let s of serije">
+        <div class="sadrzajSerija">
+            <ng-container *ngIf="s.poster_path; else noImage">
+                <img *ngIf="s?.poster_path" [src]="posteriPutanja + s?.poster_path" alt="Poster">
+            </ng-container>
+            <ng-template #noImage>
+                <img src="assets/nemaSlike.png" alt="No Image">
+            </ng-template>  
+            <div class="naslovIOpisSerija">
+                <h3>{{ s.name }}</h3>
+                <p>{{s.overview}}</p>
+            </div>
+            <button class="btnDetaljiSerije" (click)="otvoriFavoritiDetalji(s.id)">Detalji favorita</button>
+        </div>
+    </li>
+</ul>
+
+<app-zabrana-pristupa *ngIf="!korisnikAutoriziran"></app-zabrana-pristupa>

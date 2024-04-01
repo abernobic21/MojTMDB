@@ -1,0 +1,23 @@
+{
+	"name": "vjezba_03",
+	"version": "1.0.0",
+	"description": "",
+	"main": "server.mjs",
+	"scripts": {
+		"pripremi": "npm link --save express sqlite3 express-session cookie-parser totp-generator base32-encoding cors",
+		"debug": "nodemon server.mjs RWA2023abernobic21.csv",
+		"start": "npm link --save express sqlite3 express-session cookie-parser totp-generator base32-encoding cors && node server.mjs RWA2023abernobic21.csv",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Antonio Bernobić",
+	"license": "ISC",
+	"dependencies": {
+		"base32-encoding": "file:../../../../../usr/lib/node_modules/base32-encoding",
+		"cookie-parser": "file:../../../../../usr/lib/node_modules/cookie-parser",
+		"cors": "file:../../../../../usr/lib/node_modules/cors",
+		"express": "file:../../../../../usr/lib/node_modules/express",
+		"express-session": "file:../../../../../usr/lib/node_modules/express-session",
+		"sqlite3": "file:../../../../../usr/lib/node_modules/sqlite3",
+		"totp-generator": "file:../../../../../usr/lib/node_modules/totp-generator"
+	}
+}
